@@ -7,40 +7,86 @@
     <title>Spatial</title>
 
     <style class="zero">
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         html,
         body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             text-decoration: none;
-            overflow-y: scroll;
-            background-color: gray;
+
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+
+            background-color: #222222;
+            color: #ffffff;
+        }
+
+        grp-sp,
+        grp-header,
+        grp-logo,
+        grp-search,
+        grp-nav,
+        grp-main {
+            display: block;
         }
     </style>
-    <style class="takanashi"></style>
-    <style class="kiroki">
-        .header {
+    <style class="GRP-SP">
+        .GRP-SP {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+    <style class="sp-header">
+        .sp-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 56px;
+            height: 60px;
             box-sizing: border-box;
-            padding: 0 20px;
+            padding: 0 25px;
             background-color: #1a1a1a;
+            flex-shrink: 0;
         }
 
-        .link-logo {
-            display: inline-flex;
+        .sp-link-logo {
+            display: flex;
             align-items: center;
             justify-content: center;
             width: auto;
             height: 100%;
-            padding: 18px 14px 18px 16px;
+            padding: 0 14px 0 16px;
         }
 
-        .link-logo svg {
-            width: 24px;
-            height: auto;
+        .sp-link-logo svg {
+            height: 45px;
+            width: auto;
+        }
+    </style>
+    <style class="sp-aside">
+        .sp-aside {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            width: 100%;
+        }
+    </style>
+    <style class="navbar-sp">
+        .navbar-sp {
+            width: 100px;
+            flex-shrink: 0;
+            background-color: #1f1f1f;
+        }
+    </style>
+    <style class="main-sp">
+        .main-sp {
+            flex-grow: 1;
+            background-color: #141414;
         }
     </style>
 </head>
@@ -48,9 +94,9 @@
 <body>
     <grp-sp class="GRP-SP">
 
-        <grp-header class="header">
-            <grp-logo class="logo">
-                <a href="/" class="link-logo">
+        <grp-header class="sp-header">
+            <grp-logo class="sp-logo">
+                <a href="/" class="sp-link-logo">
                     <svg width="306" height="537" viewBox="0 0 306 537" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="static logo">
                             <g id="grape group">
@@ -106,8 +152,10 @@
             </grp-search>
         </grp-header>
 
-        <grp-nav id="navbar" class="navbar"></grp-nav>
-        <grp-main id="main-sp" class="main-sp"></grp-main>
+        <grp-aside class="sp-aside">
+            <grp-nav id="navbar" class="navbar-sp"></grp-nav>
+            <grp-main id="main" class="main-sp"></grp-main>
+        </grp-aside>
     </grp-sp>
 </body>
 
